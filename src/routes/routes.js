@@ -12,6 +12,7 @@ const Home = () => {
     <Switch>
       <Route path="/home" exact component={HomeMain} />
       <Route path="/home/about-us" exact component={AboutUs} />
+      <Route to="/home/*" component={Page404} />
     </Switch>
   );
 };
@@ -19,9 +20,9 @@ const Home = () => {
 const DefaultRoute = () => {
   return (
     <Switch>
-      <Route path="/home" exact component={Home} />
-      <Route path="/anime-list" exact component={AnimeList} />
-      <Route path="/anime-library" exact component={AnimeLibrary} />
+      <Route path="/home"  component={Home} />
+      <Route path="/anime-list" component={AnimeList} />
+      <Route path="/anime-library" component={AnimeLibrary} />
       <Route to="*" component={Page404} />
     </Switch>
   );
