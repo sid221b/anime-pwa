@@ -12,7 +12,7 @@ const HomeMain = () => {
   return (
     <HomeLayout>
       <StyledHome>
-        <h2>Somethis coming very soon...</h2>
+        <h2>Something's coming very soon...</h2>
       </StyledHome>
     </HomeLayout>
   );

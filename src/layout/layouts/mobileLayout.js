@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { theme } from "../../theme/dark";
+import NameLogo from "../../assets/images/name-logo.png";
 
 const StyledMobileLayout = styled.div`
   height: 100%;
@@ -27,6 +28,10 @@ const StyledHeader = styled.div`
     &:first-child {
       flex-grow: 1;
       padding-left: 10px;
+      height: 100%;
+      img {
+        height: 100%;
+      }
     }
     &:last-child {
       text-align: center;
@@ -60,6 +65,10 @@ const MobileNavbarContainer = styled.div`
     padding: 0;
     cursor: pointer;
 
+    &[data-active="true"] {
+      background: ${theme.darkActiveBtn};
+    }
+
     img {
       filter: brightness(1) invert(1);
       pointer-events: none;
@@ -75,11 +84,17 @@ const MobileContentContainer = styled.div`
 `;
 
 const MobileLayout = ({ children }) => {
+  const [activePage, setActivePage] = useState(window.location.pathname);
+
+  const handleActivePage = pageName => {
+    setActivePage(pageName);
+  };
+
   return (
     <StyledMobileLayout>
       <StyledHeader>
         <div>
-          <h1>Anime Library</h1>
+          <img src={NameLogo} alt="Anime Hub" title="Anime Hub" />
         </div>
         <div>
           <img src="/static/images/goku-ultra.png" alt="" />
@@ -87,7 +102,11 @@ const MobileLayout = ({ children }) => {
       </StyledHeader>
       <MobileContentContainer>{children}</MobileContentContainer>
       <MobileNavbarContainer>
-        <Link to="/anime-list">
+        <Link
+          onClick={() => handleActivePage("/anime-list")}
+          data-active={activePage === "/anime-list"}
+          to="/anime-list"
+        >
           <div>
             <img
               src="/static/images/list.svg"
@@ -98,7 +117,11 @@ const MobileLayout = ({ children }) => {
           </div>
           <div>Anime List</div>
         </Link>
-        <Link to="/home">
+        <Link
+          onClick={() => handleActivePage("/home")}
+          data-active={activePage === "/home" || activePage === "/home/about-us"}
+          to="/home"
+        >
           <div>
             <img
               src="/static/images/home.svg"
@@ -109,7 +132,11 @@ const MobileLayout = ({ children }) => {
           </div>
           <div>Home</div>
         </Link>
-        <Link to="/anime-library">
+        <Link
+          onClick={() => handleActivePage("/anime-library")}
+          data-active={activePage === "/anime-library"}
+          to="/anime-library"
+        >
           <div>
             <img
               src="/static/images/anime-library.svg"

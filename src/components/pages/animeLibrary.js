@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 // import getWindowSize from "../../assets/getWindowSize";
-import {theme} from "../../theme/dark"
+import { theme } from "../../theme/dark";
 
 const StyledAnimeLibrary = styled.div`
   display: flex;
@@ -25,14 +25,12 @@ const StyledAnimeLibrary = styled.div`
       font-size: 14px;
       border: none;
       background: ${theme.darkBg3};
-      i {
+      img {
         z-index: 10;
-        height: 2rem;
-        width: 2rem;
-        font-size: 2rem;
+        height: 1.7rem;
+        width: 1.7rem;
+        filter: brightness(200%) invert(1);
       }
-          /* .fa-search {
-          } */
     }
   }
 `;
@@ -59,7 +57,7 @@ const AnimeLibrary = () => {
           placeholder="Enter the Anime you want to search"
         />
         <button onClick={handleSearch} className="search-button">
-          <i class="fa fa-search fa-3x" ></i>
+          <img src="/static/images/search.svg" alt=">" />
         </button>
       </div>
       <div className="search-keyword-desc">{`You have searched for anime "${searchTerm}"`}</div>

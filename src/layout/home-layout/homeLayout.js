@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -27,9 +27,13 @@ const StyledHomeNav = styled.div`
     width: 45%;
     height: 60%;
     line-height: 240%;
-    background: ${theme.darkBg3};
+    background: ${theme.darkBtn};
     color: ${theme.darkColor1};
     text-decoration: none;
+    
+    &[data-active="true"] {
+      background: ${theme.darkActiveBtn};
+    }
   }
 `;
 const StyledHomeContent = styled.div`
@@ -38,11 +42,16 @@ const StyledHomeContent = styled.div`
 `;
 
 const HomeLayout = ({ children }) => {
+  const [activeHomePage, setActiveHomePage] = useState(window.location.pathname)
+
+  const handleActiveHomeView = (activePage) => {
+    setActiveHomePage(activePage);
+  }
   return (
     <StyledHomeLayout>
       <StyledHomeNav>
-        <Link to="/home">Home</Link>
-        <Link to="/home/about-us">About Us</Link>
+        <Link data-active={activeHomePage === "/home"} onClick={() => handleActiveHomeView('/home')} to="/home">Home</Link>
+        <Link data-active={activeHomePage === "/home/about-us"} onClick={() => handleActiveHomeView('/home/about-us')} to="/home/about-us">About Us</Link>
       </StyledHomeNav>
       <StyledHomeContent>{children}</StyledHomeContent>
     </StyledHomeLayout>
