@@ -27,13 +27,13 @@ const StyledAnimeList = styled.ul`
   justify-content: center;
   align-items: center;
   li {
-      width: 100%;
-      height: 2.5rem;
-      margin: 0.4rem 0;
-      padding: 0;
-      line-height: 210%;
-      text-decoration: none;
-      list-style: none;
+    width: 100%;
+    height: 2.5rem;
+    margin: 0.4rem 0;
+    padding: 0;
+    line-height: 210%;
+    text-decoration: none;
+    list-style: none;
     background: ${theme.darkBg3};
   }
 `;
@@ -45,36 +45,41 @@ const AnimeList = () => {
   useEffect(() => {
     if (availableAnimeList == null) {
       console.log("no value:   ", availableAnimeList);
-      axios.get(ANIME_LIST_END_POINT).then(
-        ({ data }) => {
-          const res = data.animeList;
+      axios
+        .get(ANIME_LIST_END_POINT, {
+          headers: { "Access-Control-Allow-Origin": "*" }
+        })
+        .then(
+          ({ data }) => {
+            const res = data.animeList;
 
-          setAnimeList(res);
-          console.log(res);
-        },
-        error => {
-          console.log("New Error Caught:  ", error);
-        }
-      );
+            setAnimeList(res);
+            console.log(res);
+          },
+          error => {
+            console.log("New Error Caught:  ", error);
+          }
+        );
     } else {
       console.log("not nulll ", availableAnimeList);
     }
   });
 
-  const getSortedList = (list) => {
-    return list.sort((a,b) => (a.name.toLowerCase().localeCompare(b.name.toLowerCase())));
-  }
-
-  
-
+  const getSortedList = list => {
+    return list.sort((a, b) =>
+      a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+    );
+  };
 
   return (
     <StyledAnimeListContainer>
       {availableAnimeList != null && (
         <StyledAnimeList>
-          {getSortedList(availableAnimeList).map(({ name, telegramLink, id }) => {
-            return <li key={id}>{name}</li>;
-          })}
+          {getSortedList(availableAnimeList).map(
+            ({ name, telegramLink, id }) => {
+              return <li key={id}>{name}</li>;
+            }
+          )}
         </StyledAnimeList>
       )}
     </StyledAnimeListContainer>
