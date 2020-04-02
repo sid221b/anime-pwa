@@ -47,7 +47,8 @@ const AnimeList = () => {
       console.log("no value:   ", availableAnimeList);
       axios
         .get(ANIME_LIST_END_POINT, {
-          headers: { "Access-Control-Allow-Origin": "*" }
+          headers: { "Access-Control-Allow-Origin": "*", 
+          "crossDomain": true }
         })
         .then(
           ({ data }) => {
