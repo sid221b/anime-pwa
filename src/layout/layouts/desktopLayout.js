@@ -5,10 +5,21 @@ import styled from "styled-components";
 import { theme } from "../../theme/dark";
 import NameLogo from "../../assets/images/name-logo.png";
 
-const StyledDesktopLayout = styled.div``;
+const StyledDesktopLayout = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+`;
 
 const DesktopHeaderContainer = styled.div`
+  flex-grow: 0;
   height: 4rem;
+  width: 100%;
+  /* overflow: hidden; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -22,6 +33,7 @@ const DesktopHeaderContainer = styled.div`
 `;
 
 const DesktopNavbarContainer = styled.div`
+  height: 100%;
   margin-right: 2rem;
   display: flex;
   justify-content: flex-end;
@@ -41,9 +53,10 @@ const DesktopNavbarContainer = styled.div`
     text-decoration: none;
     cursor: pointer;
     div {
-      align-self: center;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
       height: 100%;
-      line-height: 320%;
       padding-left: 0.7rem;
     }
 
@@ -57,7 +70,11 @@ const DesktopNavbarContainer = styled.div`
   }
 `;
 
-const DesktopContentContainer = styled.div``;
+const DesktopContentContainer = styled.div`
+  width: 100%;
+  flex-grow: 1;
+  overflow: auto;
+`;
 
 const DesktopLayout = ({ children }) => {
   const [activePage, setActivePage] = useState(window.location.pathname);
