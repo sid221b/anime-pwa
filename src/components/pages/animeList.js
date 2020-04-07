@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 
-import { theme } from "../../theme/dark";
+import ListItemTeleCard from "../assets/reusable/listCard";
 
-const ANIME_LIST_END_POINT =
-  "https://script.googleusercontent.com/macros/echo?user_content_key=RohPKX-wejZH0EVBje03O6_DXcO4psIkgECEr6zo6PapCkGxfduZBKuS9L2p1zRGzu6YDiCKDN0cj18dUGKzyRZPsYyrO8VOm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnCWMausXWZkEbbicUDIl-G8qj9DJ7NZIMh5T7hYhPHASW-ABMhMc6BR1HLuQ0P6slk7abYKbJKZs&lib=MTzk6xjIUwnNtuz7HcgI7n0r-crY8VMB6";
+import { animeSeriesList } from "../assets/data-list/anime-list/animeSeriesList";
+import { theme } from "../../theme/dark";
 
 const StyledAnimeListContainer = styled.div`
   display: flex;
@@ -26,63 +26,30 @@ const StyledAnimeList = styled.ul`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  li {
-    width: 100%;
-    height: 2.5rem;
-    margin: 0.4rem 0;
-    padding: 0;
-    line-height: 210%;
-    text-decoration: none;
-    list-style: none;
-    background: ${theme.darkBg3};
-  }
 `;
 
+const getSortedList = list => {
+  return list.sort((a, b) =>
+    a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+  );
+};
+
 const AnimeList = () => {
-  const [availableAnimeList, setAnimeList] = useState();
+  const [availableAnimeList, setAnimeList] = useState(
+    getSortedList(animeSeriesList)
+  );
   const [loading, setLoading] = useState();
-
-  useEffect(() => {
-    if (availableAnimeList == null) {
-      console.log("no value:   ", availableAnimeList);
-      axios
-        .get(ANIME_LIST_END_POINT, {
-          headers: {
-            "crossdomain": true
-          }
-        })
-        .then(
-          ({ data }) => {
-            const res = data.animeList;
-
-            setAnimeList(res);
-            console.log(res);
-          },
-          error => {
-            console.log("New Error Caught:  ", error);
-          }
-        );
-    } else {
-      console.log("not nulll ", availableAnimeList);
-    }
-  });
-
-  const getSortedList = list => {
-    return list.sort((a, b) =>
-      a.name.toLowerCase().localeCompare(b.name.toLowerCase())
-    );
-  };
 
   return (
     <StyledAnimeListContainer>
-      {availableAnimeList != null && (
+      {availableAnimeList != null ? (
         <StyledAnimeList>
-          {getSortedList(availableAnimeList).map(
-            ({ name, telegramLink, id }) => {
-              return <li key={id}>{name}</li>;
-            }
-          )}
+          {getSortedList(availableAnimeList).map((data, index) => (
+            <ListItemTeleCard {...data} key={index} />
+          ))}
         </StyledAnimeList>
+      ) : (
+        <div className="NoContentList">Looks like nothing is here...</div>
       )}
     </StyledAnimeListContainer>
   );

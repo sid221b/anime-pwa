@@ -77,7 +77,7 @@ const MobileNavbarContainer = styled.div`
 `;
 
 const MobileContentContainer = styled.div`
-  width: 97%;
+  width: 100%;
   flex-grow: 1;
   overflow: auto;
   align-self: flex-end;
@@ -119,7 +119,7 @@ const MobileLayout = ({ children }) => {
         </Link>
         <Link
           onClick={() => handleActivePage("/home")}
-          data-active={activePage === "/home" || activePage === "/home/about-us"}
+          data-active={activePage === "/home" || activePage === "/" || activePage === "/home/about-us"}
           to="/home"
         >
           <div>

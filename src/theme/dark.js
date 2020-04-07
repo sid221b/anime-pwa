@@ -9,6 +9,7 @@ const darkTheme = {
     // active Button
     darkBtn: "#2f2f2f",
     darkActiveBtn: "#080f36",
+    darkListBtn: "#252525",
     
     
     //card background colors list items
