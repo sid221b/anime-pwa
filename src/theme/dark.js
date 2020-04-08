@@ -17,7 +17,8 @@ const darkTheme = {
     
     // font colors
     darkColor1: "#e3f0ef",
-    darkColor2: "#b8ccca"
+    darkColor2: "#b8ccca",
+    darkColor3: "#a5d0a0c4"
 }
 
 export {darkTheme as theme}
