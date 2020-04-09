@@ -12,7 +12,9 @@ const StyledAnimeLibrary = styled.div`
 `;
 
 const AnimeLibrary = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const memorySearchTerm = localStorage.getItem('lib-search-term')
+  const [searchTerm, setSearchTerm] = useState(memorySearchTerm ? memorySearchTerm : "");
+
 
   const handleChange = e => {
     console.log(e.target.value);
@@ -30,6 +32,7 @@ const AnimeLibrary = () => {
         handleSearch={handleSearch}
         handleChange={handleChange}
         placeholder="Enter the Anime you want to search"
+        defaultVal={searchTerm}
       />
       <div className="search-keyword-desc">{`You have searched for anime "${searchTerm}"`}</div>
     </StyledAnimeLibrary>

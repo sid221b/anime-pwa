@@ -39,17 +39,29 @@ const StyledAnimeList = styled.ul`
 `;
 
 const getSortedList = list => {
-  return list.sort((a, b) =>
-    a.name.toLowerCase().localeCompare(b.name.toLowerCase())
-  );
+  if (list) {
+    return list.sort((a, b) =>
+      a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+    );
+  }
+  return null;
+};
+
+const searchList = (list, term) => {
+  if (list && term) {
+    return list.filter(itm =>
+      itm.name.toUpperCase().includes(term.toUpperCase())
+    );
+  }
+  return null;
 };
 
 const AnimeList = () => {
   const [searchTerm, setSearchTerm] = useState(
     localStorage.getItem("animeSeriesSearchTerm")
   );
-  const [availableAnimeList, setAnimeList] = useState(
-    getSortedList(animeSeriesList.filter(itm => itm.name.includes(searchTerm)))
+  const [availableAnimeList, setAnimeList] = useState(searchTerm ? 
+    getSortedList(searchList(animeSeriesList, searchTerm)) : getSortedList(animeSeriesList)
   );
   const [loading, setLoading] = useState();
 
@@ -57,23 +69,12 @@ const AnimeList = () => {
     setSearchTerm(e.target.value);
     localStorage.setItem("animeSeriesSearchTerm", e.target.value);
 
-    setAnimeList(
-      getSortedList(
-        animeSeriesList.filter(itm => itm.name.includes(searchTerm))
-      )
-    );
-    if (e.target.value.length === 0) {
-      console.log(searchTerm.length);
-      setAnimeList(getSortedList(animeSeriesList));
-    }
+    setAnimeList(getSortedList(searchList(animeSeriesList, searchTerm)));
   };
 
   const handleSearch = () => {
     console.log("searched for  ", searchTerm);
   };
-
-  console.log(availableAnimeList.length)
-  console.log((availableAnimeList === 0))
 
   return (
     <StyledAnimeListContainer>
@@ -81,7 +82,7 @@ const AnimeList = () => {
         handleSearch={handleSearch}
         handleChange={handleChange}
         placeholder="Enter Anime you want to search..."
-        defaultVal="animeSeriesSearchTerm"
+        defaultVal={searchTerm}
       />
       <div className="listInfo">
         ** Do note that this listing contains only available on Telegram and
@@ -89,7 +90,7 @@ const AnimeList = () => {
         not sure about english name look it up on web.
       </div>
       {searchTerm && <div>{`Search result for "${searchTerm}"`}</div>}
-      {(availableAnimeList !== null || availableAnimeList !== 0 || availableAnimeList !== undefined) ? (
+      {availableAnimeList ? (
         <StyledAnimeList>
           {getSortedList(availableAnimeList).map((data, index) => (
             <ListItemTeleCard {...data} key={index} />

@@ -49,7 +49,7 @@ const SearchBar = ({ handleChange, placeholder, handleSearch, defaultVal }) => {
       <input
         onChange={handleChange}
         placeholder={placeholder}
-        defaultValue={localStorage.getItem(defaultVal)}
+        defaultValue={defaultVal}
       />
       <button onClick={handleSearch} className="search-button">
         <img src="/static/images/search.svg" alt=">" />
