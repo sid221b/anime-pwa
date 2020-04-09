@@ -15,6 +15,36 @@ export const animeSeriesList = [
     dataId: 3
   },
   {
+    name: "parasyte the maxim",
+    telegramLink: "https://t.me/englishdubbedanime/110",
+    dataId: 1
+  },
+  {
+    name: "akame ga kill",
+    telegramLink: "https://t.me/englishdubbedanime/111",
+    dataId: 2
+  },
+  {
+    name: "kill la kill",
+    telegramLink: "https://t.me/englishdubbedanime/112",
+    dataId: 3
+  },
+  {
+    name: "parasyte the maxim",
+    telegramLink: "https://t.me/englishdubbedanime/110",
+    dataId: 1
+  },
+  {
+    name: "akame ga kill",
+    telegramLink: "https://t.me/englishdubbedanime/111",
+    dataId: 2
+  },
+  {
+    name: "kill la kill",
+    telegramLink: "https://t.me/englishdubbedanime/112",
+    dataId: 3
+  },
+  {
     name: "seven deadly sins",
     telegramLink: "https://t.me/englishdubbedanime/113",
     dataId: 4

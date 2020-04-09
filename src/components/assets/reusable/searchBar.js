@@ -24,9 +24,9 @@ const StyledSearchBar = styled.div`
     }
   }
   button {
-    position: absolute;
+    position: relative;
     height: 2.5rem;
-    width: 3rem;
+    width: 3.5rem;
     right: 1.2rem;
     border: none;
     text-align: center;
