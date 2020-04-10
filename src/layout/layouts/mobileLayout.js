@@ -24,6 +24,8 @@ const StyledHeader = styled.div`
   justify-content: center;
   align-items: center;
   background: ${theme.darkBg2};
+  box-shadow: 0 3px 5px 0 ${theme.darkSdw1};
+  z-index: 999;
   div {
     &:first-child {
       flex-grow: 1;
@@ -119,7 +121,11 @@ const MobileLayout = ({ children }) => {
         </Link>
         <Link
           onClick={() => handleActivePage("/home")}
-          data-active={activePage === "/home" || activePage === "/" || activePage === "/home/about-us"}
+          data-active={
+            activePage === "/home" ||
+            activePage === "/" ||
+            activePage === "/home/about-us"
+          }
           to="/home"
         >
           <div>
