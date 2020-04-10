@@ -4,18 +4,21 @@ import styled from "styled-components";
 import { theme } from "../../../theme/dark";
 
 const StyledLibItemCard = styled.li`
+  position: relative;
   list-style: none;
-  height: 8.5rem;
+  height: 10rem;
   max-width: 700px;
-  padding: 0.5rem;
   margin-bottom: 1rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
+  background: ${theme.darkBg2};
   overflow: hidden;
-  background: ${theme.darkBg3};
-  div {
-    :first-child {
+  .contentContainer {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem 0.5rem 0 0.5rem;
+    .contentImgContainer {
       flex-grow: 0;
       width: 97px;
       margin-right: 0.7rem;
@@ -28,8 +31,7 @@ const StyledLibItemCard = styled.li`
         width: -webkit-fill-available;
       }
     }
-    :last-child {
-      height: 100%;
+    .contentDescContainer {
       flex-grow: 10;
       display: flex;
       justify-content: flex-start;
@@ -50,17 +52,38 @@ const StyledLibItemCard = styled.li`
       }
     }
   }
+  .statsContainer {
+    position: absolute;
+    bottom: 0;
+    width: -webkit-fill-available;
+    height: 1.5rem;
+    padding: 0 0.5rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    background: ${theme.darkBg3};
+    color: ${theme.darkColor2};
+    font-size: 15px;
+  }
 `;
 
 const LibraryItemCard = props => {
   return (
     <StyledLibItemCard id={props.mal_id}>
-      <div>
-        <img src={props.image_url} alt="" />
+      <div className="contentContainer">
+        <div className="contentImgContainer">
+          <img src={props.image_url} alt="" />
+        </div>
+        <div className="contentDescContainer">
+          <h2>{props.title}</h2>
+          <p>{props.synopsis}</p>
+        </div>
       </div>
-      <div>
-        <h2>{props.title}</h2>
-        <p>{props.synopsis}</p>
+      <div className="statsContainer">
+        <span>{`Score: ${props.score}`}</span>
+        <span>{`Members: ${props.members}`}</span>
+        <span>{`Rated: ${props.rated}`}</span>
       </div>
     </StyledLibItemCard>
   );

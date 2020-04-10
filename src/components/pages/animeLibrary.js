@@ -36,26 +36,16 @@ const AnimeLibrary = () => {
       image_url:
         "https://cdn.myanimelist.net/images/anime/1429/95946.jpg?s=54a1d4bcd881957ce164297f36df5a72",
       title: "Akame ga Kill!",
+      airing: false,
       synopsis:
-        "Night Raid is the covert assassination branch of the Revolutionary Army, an uprising assembled to overthrow Prime Minister Honest, whose avarice and greed for power has led him to take advantage of th..."
-    },
-    {
-      mal_id: 26449,
-      url: "https://myanimelist.net/anime/26449/Akame_ga_Kill_Recap",
-      image_url:
-        "https://cdn.myanimelist.net/images/anime/1567/102409.jpg?s=e8e0ad787dfb697a4d7d75706d7bbd7f",
-      title: "Akame ga Kill! Recap",
-      synopsis:
-        "Night Raid is the covert assassination branch of the Revolutionary Army, an uprising assembled to overthrow Prime Minister Honest, whose avarice and greed for power has led him to take advantage of th..."
-    },
-    {
-      mal_id: 25241,
-      url: "https://myanimelist.net/anime/25241/Akame_ga_Kill__AkaKill_Gekijou",
-      image_url:
-        "https://cdn.myanimelist.net/images/anime/6/64537.jpg?s=97d70a4edb9497f8f58b9774b56bfd94",
-      title: "Akame ga Kill!: AkaKill! Gekijou",
-      synopsis:
-        "Night Raid is the covert assassination branch of the Revolutionary Army, an uprising assembled to overthrow Prime Minister Honest, whose avarice and greed for power has led him to take advantage of th..."
+        "Night Raid is the covert assassination branch of the Revolutionary Army, an uprising assembled to overthrow Prime Minister Honest, whose avarice and greed for power has led him to take advantage of th...",
+      type: "TV",
+      episodes: 24,
+      score: 7.65,
+      start_date: "2014-07-07T00:00:00+00:00",
+      end_date: "2014-12-15T00:00:00+00:00",
+      members: 1066517,
+      rated: "R"
     }
   ]);
   const [loading, setLoading] = useState(false);
