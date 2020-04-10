@@ -18,11 +18,14 @@ const StyledListItemCard = styled.li`
   text-decoration: none;
   list-style: none;
   background: ${theme.darkBg3};
+  white-space: nowrap;
   h2 {
     margin: 0;
     padding: 0;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 15.5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   a {
     height: 100%;
