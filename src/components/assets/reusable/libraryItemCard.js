@@ -17,7 +17,7 @@ const StyledLibItemCard = styled.li`
   .contentContainer {
     display: flex;
     flex-direction: row;
-    padding: 0.5rem 0.5rem 0 0.5rem;
+    padding: 0.5rem 0.5rem 0.2rem 0.5rem;
     .contentImgContainer {
       flex-grow: 0;
       width: 97px;
@@ -41,7 +41,7 @@ const StyledLibItemCard = styled.li`
       h2 {
         font-size: 18px;
         font-weight: 500;
-        margin: 0 0 0.5rem 0;
+        margin: 0 0 0.2rem 0;
         padding: 0;
       }
       p {
@@ -65,6 +65,8 @@ const StyledLibItemCard = styled.li`
     background: ${theme.darkBg3};
     color: ${theme.darkColor2};
     font-size: 15px;
+    align-items: center;
+    text-align: center;
   }
 `;
 
