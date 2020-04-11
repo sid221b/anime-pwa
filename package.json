@@ -1,6 +1,6 @@
 {
   "name": "anime-web-app",
-  "homepage": "https://animeapp.getintoeverything.net",
+  "homepage": ".",
   "version": "0.9.0",
   "private": true,
   "dependencies": {
