@@ -44,10 +44,17 @@ const StyledSearchBar = styled.div`
 `;
 
 const SearchBar = ({ handleChange, placeholder, handleSearch, defaultVal }) => {
+  const handleKeyPress = e => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <StyledSearchBar>
       <input
         onChange={handleChange}
+        onKeyPress={handleKeyPress}
         placeholder={placeholder}
         defaultValue={defaultVal}
       />
