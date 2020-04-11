@@ -5,7 +5,10 @@ import ListItemTeleCard from "../assets/reusable/listCard";
 import SearchBar from "../assets/reusable/searchBar";
 
 import { animeSeriesList } from "../assets/data-list/anime-list/animeSeriesList";
+import { animeMoviesList } from "../assets/data-list/anime-list/animeMovieList";
 import { theme } from "../../theme/dark";
+
+const availableAnime = animeSeriesList.concat(animeMoviesList);
 
 const StyledAnimeListContainer = styled.div`
   flex-grow: 1;
@@ -65,20 +68,20 @@ const AnimeList = () => {
     localStorage.getItem("animeSeriesSearchTerm")
   );
   const [availableAnimeList, setAnimeList] = useState(
-    getSortedList(animeSeriesList)
+    getSortedList(availableAnime)
   );
   const [loading, setLoading] = useState();
 
   useEffect(() => {
     if (searchTerm) {
-      setAnimeList(getSortedList(searchList(animeSeriesList, searchTerm)));
+      setAnimeList(getSortedList(searchList(availableAnime, searchTerm)));
     }
   }, [searchTerm]);
 
   const handleChange = e => {
     setSearchTerm(e.target.value);
     localStorage.setItem("animeSeriesSearchTerm", e.target.value);
-    setAnimeList(getSortedList(searchList(animeSeriesList, searchTerm)));
+    setAnimeList(getSortedList(searchList(availableAnime, searchTerm)));
   };
 
   const handleSearch = () => {
@@ -95,9 +98,9 @@ const AnimeList = () => {
       />
       <div className="listInfo">
         ** Do note that{" "}
-        <strong>this listing contains only available anime on Telegram</strong> and
-        only searches the anime titles and uses only english names. If you are
-        not sure about english name look it up on web.
+        <strong>this listing contains only available anime on Telegram</strong>{" "}
+        and only searches the anime titles and uses only english names. If you
+        are not sure about english name look it up on web.
       </div>
       {searchTerm && <div>{`Search result for "${searchTerm}"`}</div>}
       {availableAnimeList ? (
