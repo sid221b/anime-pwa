@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import ListItemTeleCard from "../assets/reusable/listCard";
@@ -22,6 +22,10 @@ const StyledAnimeListContainer = styled.div`
     color: ${theme.darkColor3};
     font-size: 15px;
     text-align: justify;
+    strong {
+      color: ${theme.darkColor2};
+      text-transform: uppercase;
+    }
   }
 `;
 
@@ -60,15 +64,20 @@ const AnimeList = () => {
   const [searchTerm, setSearchTerm] = useState(
     localStorage.getItem("animeSeriesSearchTerm")
   );
-  const [availableAnimeList, setAnimeList] = useState(searchTerm ? 
-    getSortedList(searchList(animeSeriesList, searchTerm)) : getSortedList(animeSeriesList)
+  const [availableAnimeList, setAnimeList] = useState(
+    getSortedList(animeSeriesList)
   );
   const [loading, setLoading] = useState();
+
+  useEffect(() => {
+    if (searchTerm) {
+      setAnimeList(getSortedList(searchList(animeSeriesList, searchTerm)));
+    }
+  }, [searchTerm]);
 
   const handleChange = e => {
     setSearchTerm(e.target.value);
     localStorage.setItem("animeSeriesSearchTerm", e.target.value);
-
     setAnimeList(getSortedList(searchList(animeSeriesList, searchTerm)));
   };
 
@@ -85,7 +94,8 @@ const AnimeList = () => {
         defaultVal={searchTerm}
       />
       <div className="listInfo">
-        ** Do note that this listing contains only available on Telegram and
+        ** Do note that{" "}
+        <strong>this listing contains only available anime on Telegram</strong> and
         only searches the anime titles and uses only english names. If you are
         not sure about english name look it up on web.
       </div>
