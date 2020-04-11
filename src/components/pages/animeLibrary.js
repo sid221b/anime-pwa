@@ -12,6 +12,24 @@ const StyledAnimeLibrary = styled.div`
   flex-direction: column;
   color: ${theme.darkColor1};
   padding-top: 1rem;
+  div.listInfo {
+    padding: 0 1.3rem 1rem 1.2rem;
+    color: ${theme.darkColor3};
+    font-size: 13px;
+    text-align: justify;
+    strong {
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+  }
+  .stateMan {
+    margin: 0;
+    padding: 0 1.3rem 0 1.2rem;
+  }
+  .noResult {
+    text-align: center;
+    font-size: 20px;
+  }
 `;
 
 const StyledItemList = styled.ul`
@@ -23,11 +41,11 @@ const StyledItemList = styled.ul`
 `;
 
 const END_POINT = "https://api.jikan.moe/v3/search/anime";
-const memorySearchTerm = localStorage.getItem("lib-search-term");
+const animeLibSearchTerm = localStorage.getItem("lib-search-term");
 
 const AnimeLibrary = () => {
   const [searchTerm, setSearchTerm] = useState(
-    memorySearchTerm ? memorySearchTerm : ""
+    animeLibSearchTerm ? animeLibSearchTerm : ""
   );
   const [data, setData] = useState([
     {
@@ -48,26 +66,46 @@ const AnimeLibrary = () => {
       rated: "R"
     }
   ]);
-  const [loading, setLoading] = useState(false);
+  const [processing, setProcessing] = useState();
 
   const handleChange = e => {
     setSearchTerm(e.target.value);
     localStorage.setItem("lib-search-term", e.target.value);
   };
 
+  useEffect(() => {
+    console.log("useEffect fired");
+    if (animeLibSearchTerm) {
+      setSearchTerm(animeLibSearchTerm);
+    }
+
+    if (searchTerm) {
+      console.log("useEffect fired inside serch condition");
+      setProcessing("PROCESSING");
+      axios
+        .get(`${END_POINT}?q=${searchTerm}&limit=10`)
+        .then(res => {
+          setData(res.data.results);
+          setProcessing("PROCESSED");
+        })
+        .catch(err => {
+          console.log(err.data);
+          setProcessing("FAILED");
+        });
+    }
+  }, []);
+
   const handleSearch = () => {
-    console.log("searched for  ", searchTerm);
-    setLoading(true);
+    setProcessing("PROCESSING");
     axios
       .get(`${END_POINT}?q=${searchTerm}&limit=10`)
       .then(res => {
-        console.log(res);
         setData(res.data.results);
-        setLoading(false);
+        setProcessing("PROCESSED");
       })
       .catch(err => {
         console.log(err.data);
-        setLoading(false);
+        setProcessing("FAILED");
       });
   };
 
@@ -79,14 +117,24 @@ const AnimeLibrary = () => {
         placeholder="Enter the Anime you want to search"
         defaultVal={searchTerm}
       />
-
-      {searchTerm && (
-        <div className="search-keyword-desc">{`You have searched for anime "${searchTerm}"`}</div>
-      )}
-      {loading && <div className="list-loading">Loading...</div>}
+      <div className="listInfo">
+        ** Search results are provided by <strong>MyAnimeList.com</strong> and
+        only them.
+      </div>
+      <div className="stateMan">
+        {processing === "PROCESSED" && searchTerm && (
+          <div className="search-keyword-desc">{`You have searched for anime "${searchTerm}"`}</div>
+        )}
+        {processing === "PROCESSING" && (
+          <div className="list-loading">Loading...</div>
+        )}
+      </div>
       <StyledItemList>
         {data &&
           data.map(item => <LibraryItemCard key={item.mal_id} {...item} />)}
+        {data.length === 0 && (
+          <div className="noResult">Looks line no result found!...</div>
+        )}
       </StyledItemList>
     </StyledAnimeLibrary>
   );
