@@ -26,6 +26,7 @@ const StyledListItemCard = styled.li`
     font-size: 15.5px;
     overflow: hidden;
     text-overflow: ellipsis;
+    flex-grow: 1;
   }
   a {
     height: 100%;
