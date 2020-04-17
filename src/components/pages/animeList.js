@@ -99,7 +99,7 @@ const AnimeList = () => {
 
   return (
     <StyledAnimeListContainer>
-      {openModal && <PopupModel toggleOpenModal={handleModal} />}
+      {openModal && <PopupModel toggleOpenModal={handleModal} mode={"tele_list"}/>}
       <SearchBar
         handleSearch={handleSearch}
         handleChange={handleChange}

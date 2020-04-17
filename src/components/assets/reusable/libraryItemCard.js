@@ -70,9 +70,12 @@ const StyledLibItemCard = styled.li`
   }
 `;
 
-const LibraryItemCard = props => {
+const LibraryItemCard = (props) => {
   return (
-    <StyledLibItemCard id={props.mal_id}>
+    <StyledLibItemCard
+      id={props.mal_id}
+      onClick={() => props.openModal(props.mal_id)}
+    >
       <div className="contentContainer">
         <div className="contentImgContainer">
           <img src={props.image_url} alt="" />
