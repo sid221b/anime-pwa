@@ -72,7 +72,6 @@ const AnimeList = () => {
   const [availableAnimeList, setAnimeList] = useState(
     getSortedList(availableAnime)
   );
-  const [loading, setLoading] = useState();
   const [openModal, setModalOpen] = useState(false);
 
   useEffect(() => {

@@ -81,7 +81,7 @@ const PopupModel = ({ toggleOpenModal, mode }) => {
         console.log(err);
         setProcessing("FAILED");
       });
-  }, []);
+  }, [mal_id]);
 
   return (
     <StyledPopupModel onClick={() => toggleOpenModal()}>

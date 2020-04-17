@@ -94,7 +94,7 @@ const AnimeLibrary = () => {
           setProcessing("FAILED");
         });
     }
-  }, []);
+  }, [searchTerm]);
 
   const handleModal = (id) => {
     setModalOpen(!openModal);

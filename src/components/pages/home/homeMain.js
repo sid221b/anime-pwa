@@ -111,7 +111,7 @@ const HomeMain = () => {
             </span>
           </h3>
           <a
-            href="https://t.me/animegroup_eng"
+            href="https://t.me/anime_arina"
             target="_blank"
             rel="noopener noreferrer"
           >
