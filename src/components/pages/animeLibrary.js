@@ -11,7 +11,6 @@ const StyledAnimeLibrary = styled.div`
   display: flex;
   flex-direction: column;
   color: ${theme.darkColor1};
-  padding-top: 1rem;
   div.listInfo {
     padding: 0 1.3rem 1rem 1.2rem;
     color: ${theme.darkColor3};
@@ -63,32 +62,30 @@ const AnimeLibrary = () => {
       start_date: "2014-07-07T00:00:00+00:00",
       end_date: "2014-12-15T00:00:00+00:00",
       members: 1066517,
-      rated: "R"
-    }
+      rated: "R",
+    },
   ]);
   const [processing, setProcessing] = useState();
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setSearchTerm(e.target.value);
     localStorage.setItem("lib-search-term", e.target.value);
   };
 
   useEffect(() => {
-    console.log("useEffect fired");
     if (animeLibSearchTerm) {
       setSearchTerm(animeLibSearchTerm);
     }
 
     if (searchTerm) {
-      console.log("useEffect fired inside serch condition");
       setProcessing("PROCESSING");
       axios
         .get(`${END_POINT}?q=${searchTerm}&limit=10`)
-        .then(res => {
+        .then((res) => {
           setData(res.data.results);
           setProcessing("PROCESSED");
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err.data);
           setProcessing("FAILED");
         });
@@ -99,11 +96,11 @@ const AnimeLibrary = () => {
     setProcessing("PROCESSING");
     axios
       .get(`${END_POINT}?q=${searchTerm}&limit=10`)
-      .then(res => {
+      .then((res) => {
         setData(res.data.results);
         setProcessing("PROCESSED");
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err.data);
         setProcessing("FAILED");
       });
@@ -131,7 +128,7 @@ const AnimeLibrary = () => {
       </div>
       <StyledItemList>
         {data &&
-          data.map(item => <LibraryItemCard key={item.mal_id} {...item} />)}
+          data.map((item) => <LibraryItemCard key={item.mal_id} {...item} />)}
         {data.length === 0 && (
           <div className="noResult">Looks line no result found!...</div>
         )}
