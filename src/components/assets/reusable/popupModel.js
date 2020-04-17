@@ -74,7 +74,6 @@ const PopupModel = ({ toggleOpenModal, mode }) => {
     axios
       .get(`${END_POINT}${mal_id}`)
       .then(({ data }) => {
-        console.log(data);
         setData(data);
         setProcessing("PROCESSED");
       })

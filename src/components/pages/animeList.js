@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import ReactGA from "react-ga";
 
 import ListItemTeleCard from "../assets/reusable/listCard";
 import SearchBar from "../assets/reusable/searchBar";
@@ -85,6 +86,10 @@ const AnimeList = () => {
     if (id) {
       localStorage.setItem("tele_list_anime_mal_id", id);
     }
+    ReactGA.event({
+      category: "Visited MAL Report in Tele list",
+      action: `visited post`,
+    });
   };
 
   const handleChange = (e) => {
@@ -99,7 +104,9 @@ const AnimeList = () => {
 
   return (
     <StyledAnimeListContainer>
-      {openModal && <PopupModel toggleOpenModal={handleModal} mode={"tele_list"}/>}
+      {openModal && (
+        <PopupModel toggleOpenModal={handleModal} mode={"tele_list"} />
+      )}
       <SearchBar
         handleSearch={handleSearch}
         handleChange={handleChange}
@@ -116,11 +123,7 @@ const AnimeList = () => {
       {availableAnimeList ? (
         <StyledAnimeList>
           {getSortedList(availableAnimeList).map((data, index) => (
-            <ListItemTeleCard
-              openModal={handleModal}
-              {...data}
-              key={index}
-            />
+            <ListItemTeleCard openModal={handleModal} {...data} key={index} />
           ))}
         </StyledAnimeList>
       ) : (

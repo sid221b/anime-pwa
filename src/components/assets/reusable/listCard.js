@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import ReactGA from "react-ga";
 
 import { theme } from "../../../theme/dark";
 
@@ -45,10 +46,21 @@ const StyledListItemCard = styled.li`
 `;
 
 const ListItemTeleCard = ({ name, telegramLink, mal_id, openModal }) => {
+  const handleLinkClick = () => {
+    ReactGA.event({
+      category: "Clicked Telegram Post",
+      action: `visited anime post`,
+    });
+  };
   return (
     <StyledListItemCard id={mal_id}>
       <h2 onClick={() => openModal(mal_id)}>{name}</h2>
-      <a href={telegramLink} target="_blank" rel="noopener noreferrer">
+      <a
+        href={telegramLink}
+        onClick={handleLinkClick}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <div>
           <img src="/static/images/telegram-icon.png" alt="Link" />
         </div>

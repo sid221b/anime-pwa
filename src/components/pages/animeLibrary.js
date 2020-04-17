@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import ReactGA from "react-ga";
 
 import SearchBar from "../assets/reusable/searchBar";
 import LibraryItemCard from "../assets/reusable/libraryItemCard";
@@ -100,6 +101,10 @@ const AnimeLibrary = () => {
     if (id) {
       localStorage.setItem("library_anime_mal_id", id);
     }
+    ReactGA.event({
+      category: "Visited MAL Report in Library",
+      action: `visited post`,
+    });
   };
 
   const handleSearch = () => {
@@ -114,6 +119,10 @@ const AnimeLibrary = () => {
         console.log(err.data);
         setProcessing("FAILED");
       });
+    ReactGA.event({
+      category: "Search",
+      action: `anime search`,
+    });
   };
 
   return (
