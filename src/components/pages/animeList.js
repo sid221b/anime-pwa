@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import ListItemTeleCard from "../assets/reusable/listCard";
 import SearchBar from "../assets/reusable/searchBar";
+import PopupModel from "../assets/reusable/popupModel";
 
 import { animeSeriesList } from "../assets/data-list/anime-list/animeSeriesList";
 import { animeMoviesList } from "../assets/data-list/anime-list/animeMovieList";
@@ -18,7 +19,7 @@ const StyledAnimeListContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   overflow: auto;
-  padding-top: 1rem;
+  position: relative;
 
   div.listInfo {
     padding: 0 1.3rem 1rem 1.2rem;
@@ -45,7 +46,7 @@ const StyledAnimeList = styled.ul`
   align-items: center;
 `;
 
-const getSortedList = list => {
+const getSortedList = (list) => {
   if (list) {
     return list.sort((a, b) =>
       a.name.toLowerCase().localeCompare(b.name.toLowerCase())
@@ -56,7 +57,7 @@ const getSortedList = list => {
 
 const searchList = (list, term) => {
   if (list && term) {
-    return list.filter(itm =>
+    return list.filter((itm) =>
       itm.name.toUpperCase().includes(term.toUpperCase())
     );
   }
@@ -71,6 +72,7 @@ const AnimeList = () => {
     getSortedList(availableAnime)
   );
   const [loading, setLoading] = useState();
+  const [openModal, setModalOpen] = useState(false);
 
   useEffect(() => {
     if (searchTerm) {
@@ -78,7 +80,14 @@ const AnimeList = () => {
     }
   }, [searchTerm]);
 
-  const handleChange = e => {
+  const handleModal = (id) => {
+    setModalOpen(!openModal);
+    if (id) {
+      localStorage.setItem("tele_list_anime_mal_id", id);
+    }
+  };
+
+  const handleChange = (e) => {
     setSearchTerm(e.target.value);
     localStorage.setItem("animeSeriesSearchTerm", e.target.value);
     setAnimeList(getSortedList(searchList(availableAnime, searchTerm)));
@@ -90,6 +99,7 @@ const AnimeList = () => {
 
   return (
     <StyledAnimeListContainer>
+      {openModal && <PopupModel toggleOpenModal={handleModal} />}
       <SearchBar
         handleSearch={handleSearch}
         handleChange={handleChange}
@@ -106,7 +116,11 @@ const AnimeList = () => {
       {availableAnimeList ? (
         <StyledAnimeList>
           {getSortedList(availableAnimeList).map((data, index) => (
-            <ListItemTeleCard {...data} key={index} />
+            <ListItemTeleCard
+              openModal={handleModal}
+              {...data}
+              key={index}
+            />
           ))}
         </StyledAnimeList>
       ) : (
