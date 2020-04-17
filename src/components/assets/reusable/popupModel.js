@@ -59,11 +59,15 @@ const StyledContent = styled.div`
 
 const END_POINT = "https://api.jikan.moe/v3/anime/";
 
-const PopupModel = ({ toggleOpenModal }) => {
+const PopupModel = ({ toggleOpenModal, mode }) => {
   const [data, setData] = useState();
   const [processing, setProcessing] = useState();
 
-  const [mal_id] = useState(localStorage.getItem("tele_list_anime_mal_id"));
+  const [mal_id] = useState(
+    mode === "tele_list"
+      ? localStorage.getItem("tele_list_anime_mal_id")
+      : localStorage.getItem("library_anime_mal_id")
+  );
   useEffect(() => {
     setProcessing("PROCESSING");
     axios

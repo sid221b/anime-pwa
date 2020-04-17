@@ -4,10 +4,12 @@ import axios from "axios";
 
 import SearchBar from "../assets/reusable/searchBar";
 import LibraryItemCard from "../assets/reusable/libraryItemCard";
+import PopupModel from "../assets/reusable/popupModel";
 
 import { theme } from "../../theme/dark";
 
 const StyledAnimeLibrary = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   color: ${theme.darkColor1};
@@ -66,6 +68,7 @@ const AnimeLibrary = () => {
     },
   ]);
   const [processing, setProcessing] = useState();
+  const [openModal, setModalOpen] = useState(false);
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
@@ -92,6 +95,13 @@ const AnimeLibrary = () => {
     }
   }, []);
 
+  const handleModal = (id) => {
+    setModalOpen(!openModal);
+    if (id) {
+      localStorage.setItem("library_anime_mal_id", id);
+    }
+  };
+
   const handleSearch = () => {
     setProcessing("PROCESSING");
     axios
@@ -108,6 +118,9 @@ const AnimeLibrary = () => {
 
   return (
     <StyledAnimeLibrary>
+      {openModal && (
+        <PopupModel toggleOpenModal={handleModal} mode={"library"} />
+      )}
       <SearchBar
         handleSearch={handleSearch}
         handleChange={handleChange}
@@ -128,7 +141,13 @@ const AnimeLibrary = () => {
       </div>
       <StyledItemList>
         {data &&
-          data.map((item) => <LibraryItemCard key={item.mal_id} {...item} />)}
+          data.map((item) => (
+            <LibraryItemCard
+              key={item.mal_id}
+              openModal={handleModal}
+              {...item}
+            />
+          ))}
         {data.length === 0 && (
           <div className="noResult">Looks line no result found!...</div>
         )}
