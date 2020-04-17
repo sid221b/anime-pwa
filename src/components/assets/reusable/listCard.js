@@ -43,10 +43,10 @@ const StyledListItemCard = styled.li`
   }
 `;
 
-const ListItemTeleCard = ({ name, telegramLink, id }) => {
+const ListItemTeleCard = ({ name, telegramLink, mal_id, openModal }) => {
   return (
-    <StyledListItemCard id={id}>
-      <h2>{name}</h2>
+    <StyledListItemCard id={mal_id}>
+      <h2 onClick={() => openModal(mal_id)}>{name}</h2>
       <a href={telegramLink} target="_blank" rel="noopener noreferrer">
         <div>
           <img src="/static/images/telegram-icon.png" alt="Link" />

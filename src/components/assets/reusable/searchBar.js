@@ -9,6 +9,7 @@ const StyledSearchBar = styled.div`
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 0.7rem;
+  margin-top: 1rem;
   input {
     width: 100%;
     margin: 0 1.2rem 0 1rem;
