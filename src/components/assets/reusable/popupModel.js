@@ -16,6 +16,7 @@ const StyledContent = styled.div`
   position: fixed;
   height: 60%;
   width: 90%;
+  max-width: 650px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
