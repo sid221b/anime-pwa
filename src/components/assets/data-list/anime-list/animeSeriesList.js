@@ -572,7 +572,7 @@ export const animeSeriesList = [
   {
     name: "Black Clover",
     telegramLink: "https://t.me/englishdubbedanimee/2741",
-    mal_id: 37572
+    mal_id: 34572
   },
   {
     name: "Haikyu!! S03",
