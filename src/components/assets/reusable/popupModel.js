@@ -23,10 +23,11 @@ const StyledContent = styled.div`
   background: ${theme.darkBg2};
   overflow: auto;
   font-size: 17px;
+  box-shadow: 0 0 1rem 0.1rem ${theme.darkSdw1};
   h1 {
     font-weight: 500;
     font-size: 24px;
-    margin: 0.5rem 0;
+    margin: 0.5rem 2.3rem 0.5rem 0;
   }
   .highlight {
     font-style: italic;
