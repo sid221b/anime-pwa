@@ -117,7 +117,7 @@ const MobileLayout = ({ children }) => {
               alt="icon"
             />
           </div>
-          <div>Anime List</div>
+          <div>Telegram List</div>
         </Link>
         <Link
           onClick={() => handleActivePage("/home")}
