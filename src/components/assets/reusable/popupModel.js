@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import ReactGA from "react-ga";
 
 import { theme } from "../../../theme/dark";
 
@@ -112,6 +113,13 @@ const PopupModel = ({ toggleOpenModal, mode }) => {
       });
   }, [mal_id]);
 
+  const handleTeleLinkClick = () => {
+    ReactGA.event({
+      category: "Clicked Telegram Post",
+      action: `visited telegram post`,
+    });
+  };
+
   return (
     <StyledPopupModel onClick={() => toggleOpenModal()}>
       <StyledContent onClick={(e) => e.stopPropagation()}>
@@ -163,7 +171,12 @@ const PopupModel = ({ toggleOpenModal, mode }) => {
               </article>
               {mode === "tele_list" && (
                 <div className="teleLinkBtn">
-                  <a href={telegramLink} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={telegramLink}
+                    target="_blank"
+                    onClick={handleTeleLinkClick}
+                    rel="noopener noreferrer"
+                  >
                     <span>Go To Telegram Post</span>
                     <img src="/static/images/telegram-icon.png" alt="Link" />
                   </a>
