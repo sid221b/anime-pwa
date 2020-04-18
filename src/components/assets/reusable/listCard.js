@@ -49,12 +49,12 @@ const ListItemTeleCard = ({ name, telegramLink, mal_id, openModal }) => {
   const handleLinkClick = () => {
     ReactGA.event({
       category: "Clicked Telegram Post",
-      action: `visited anime post`,
+      action: `visited telegram post`,
     });
   };
   return (
     <StyledListItemCard id={mal_id}>
-      <h2 onClick={() => openModal(mal_id)}>{name}</h2>
+      <h2 onClick={() => openModal(mal_id, name, telegramLink)}>{name}</h2>
       <a
         href={telegramLink}
         onClick={handleLinkClick}

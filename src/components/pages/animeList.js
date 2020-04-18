@@ -80,10 +80,12 @@ const AnimeList = () => {
     }
   }, [searchTerm]);
 
-  const handleModal = (id) => {
+  const handleModal = (mal_id, name, telegramLink) => {
     setModalOpen(!openModal);
-    if (id) {
-      localStorage.setItem("tele_list_anime_mal_id", id);
+    if (mal_id) {
+      localStorage.setItem("tele_list_anime_mal_id", mal_id);
+      // localStorage.setItem("tele_list_anime_name", name);
+      localStorage.setItem("tele_list_anime_tele_link", telegramLink);
     }
     ReactGA.event({
       category: "Visited MAL Report in Tele list",

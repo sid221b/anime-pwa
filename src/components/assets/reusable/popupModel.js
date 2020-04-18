@@ -56,6 +56,32 @@ const StyledContent = styled.div`
     background: ${theme.darkListBtn};
     color: ${theme.darkColor1};
   }
+  .teleLinkBtn {
+    margin: 1.5rem auto 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a {
+      height: 3rem;
+      width: 17rem;
+      padding: auto 0.7rem;
+      border-radius: 4rem;
+      box-shadow: 0 0 0.9rem 0.1rem ${theme.darkSdw1};
+      background: ${theme.darkListBtn};
+      text-decoration: none;
+      color: ${theme.darkColor1};
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      font-variant: petite-caps;
+      img {
+        height: 65%;
+        margin-left: 0.5rem;
+        align-self: center;
+      }
+    }
+  }
 `;
 
 const END_POINT = "https://api.jikan.moe/v3/anime/";
@@ -68,6 +94,9 @@ const PopupModel = ({ toggleOpenModal, mode }) => {
     mode === "tele_list"
       ? localStorage.getItem("tele_list_anime_mal_id")
       : localStorage.getItem("library_anime_mal_id")
+  );
+  const [telegramLink] = useState(
+    localStorage.getItem("tele_list_anime_tele_link")
   );
   useEffect(() => {
     setProcessing("PROCESSING");
@@ -132,6 +161,14 @@ const PopupModel = ({ toggleOpenModal, mode }) => {
                 <strong>Description: </strong>
                 {data.synopsis}
               </article>
+              {mode === "tele_list" && (
+                <div className="teleLinkBtn">
+                  <a href={telegramLink} target="_blank" rel="noopener noreferrer">
+                    <span>Go To Telegram Post</span>
+                    <img src="/static/images/telegram-icon.png" alt="Link" />
+                  </a>
+                </div>
+              )}
             </div>
           </>
         )}
