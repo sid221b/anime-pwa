@@ -32,6 +32,9 @@ const StyledAnimeListContainer = styled.div`
       text-transform: uppercase;
     }
   }
+  @media only screen and (min-width: 700px) {
+    align-self: center;
+  }
 `;
 
 const StyledAnimeList = styled.ul`

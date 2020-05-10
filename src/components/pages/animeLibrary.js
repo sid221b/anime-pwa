@@ -23,14 +23,23 @@ const StyledAnimeLibrary = styled.div`
       font-weight: 500;
       text-transform: uppercase;
     }
+    @media only screen and (min-width: 700px) {
+      align-self: center;
+    }
   }
   .stateMan {
     margin: 0;
     padding: 0 1.3rem 0 1.2rem;
+    @media only screen and (min-width: 700px) {
+      align-self: center;
+    }
   }
   .noResult {
     text-align: center;
     font-size: 20px;
+    @media only screen and (min-width: 700px) {
+      align-self: center;
+    }
   }
 `;
 
