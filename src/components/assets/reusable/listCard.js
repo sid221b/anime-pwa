@@ -44,8 +44,7 @@ const StyledListItemCard = styled.li`
     }
   }
   @media only screen and (min-width: 700px) {
-    width: 600px;
-    max-width: 700px;
+    width: 47%;
   }
 `;
 
