@@ -68,7 +68,7 @@ const AnimeLibrary = () => {
       rated: "R",
     },
   ]);
-  const [processing, setProcessing] = useState();
+  const [processing, setProcessing] = useState("NOT_PROCESSED");
   const [openModal, setModalOpen] = useState(false);
 
   const handleChange = (e) => {
@@ -77,11 +77,7 @@ const AnimeLibrary = () => {
   };
 
   useEffect(() => {
-    if (animeLibSearchTerm) {
-      setSearchTerm(animeLibSearchTerm);
-    }
-
-    if (searchTerm) {
+    if (searchTerm && processing === "NOT_PROCESSED") {
       setProcessing("PROCESSING");
       axios
         .get(`${END_POINT}?q=${searchTerm}&limit=10`)
@@ -94,7 +90,7 @@ const AnimeLibrary = () => {
           setProcessing("FAILED");
         });
     }
-  }, [searchTerm]);
+  }, [searchTerm, processing]);
 
   const handleModal = (id) => {
     setModalOpen(!openModal);
@@ -119,6 +115,8 @@ const AnimeLibrary = () => {
         console.log(err.data);
         setProcessing("FAILED");
       });
+
+    // Google Analytics
     ReactGA.event({
       category: "Search",
       action: `anime search`,
