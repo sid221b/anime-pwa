@@ -99,6 +99,12 @@ const AnimeList = () => {
     setAnimeList(getSortedList(searchList(availableAnime, searchTerm)));
   };
 
+  const handleClearAll = () => {
+    setSearchTerm("");
+    localStorage.removeItem("animeSeriesSearchTerm");
+    setAnimeList(getSortedList(availableAnime));
+  };
+
   const handleSearch = () => {
     console.log("searched for  ", searchTerm);
   };
@@ -113,6 +119,7 @@ const AnimeList = () => {
         handleChange={handleChange}
         placeholder="Enter Anime you want to search..."
         defaultVal={searchTerm}
+        handleClearAll={handleClearAll}
       />
       <div className="listInfo">
         ** Do note that{" "}

@@ -71,9 +71,15 @@ const AnimeLibrary = () => {
   const [processing, setProcessing] = useState("NOT_PROCESSED");
   const [openModal, setModalOpen] = useState(false);
 
+  //Setting Search Term
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
     localStorage.setItem("lib-search-term", e.target.value);
+  };
+
+  const handleClearAll = () => {
+    setSearchTerm("");
+    localStorage.removeItem("lib-search-term");
   };
 
   useEffect(() => {
@@ -92,6 +98,7 @@ const AnimeLibrary = () => {
     }
   }, [searchTerm, processing]);
 
+  // Anime Descreption Popup
   const handleModal = (id) => {
     setModalOpen(!openModal);
     if (id) {
@@ -104,6 +111,7 @@ const AnimeLibrary = () => {
   };
 
   const handleSearch = () => {
+    // Anime Global Search handle
     setProcessing("PROCESSING");
     axios
       .get(`${END_POINT}?q=${searchTerm}&limit=10`)
@@ -133,6 +141,7 @@ const AnimeLibrary = () => {
         handleChange={handleChange}
         placeholder="Enter the Anime you want to search"
         defaultVal={searchTerm}
+        handleClearAll={handleClearAll}
       />
       <div className="listInfo">
         ** Search results are provided by <strong>MyAnimeList.com</strong> and
