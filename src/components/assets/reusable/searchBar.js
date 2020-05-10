@@ -5,6 +5,8 @@ import { theme } from "../../../theme/dark";
 
 const StyledSearchBar = styled.div`
   width: 100%;
+  max-width: 800px;
+  align-self: center;
   display: flex;
   justify-content: center;
   align-items: center;
