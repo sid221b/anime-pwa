@@ -81,7 +81,7 @@ const SearchBar = ({
           onChange={handleChange}
           onKeyPress={handleKeyPress}
           placeholder={placeholder}
-          value={defaultVal}
+          value={defaultVal || ""}
         />
         {showClearBtn && defaultVal && (
           <i
