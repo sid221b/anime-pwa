@@ -23,6 +23,11 @@ const StyledHome = styled.div`
       text-indent: 3.5rem;
       color: ${theme.darkColor2};
     }
+    @media only screen and (min-width: 700px) {
+      align-self: center;
+      justify-self: center;
+      width: 50%;
+    }
   }
   .homeDesc {
     display: flex;
@@ -66,6 +71,11 @@ const StyledHome = styled.div`
         font-variant: petite-caps;
         color: ${theme.darkColor1};
       }
+    }
+    @media only screen and (min-width: 700px) {
+      align-self: center;
+      justify-self: center;
+      width: 50%;
     }
   }
 `;
