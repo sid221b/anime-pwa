@@ -83,6 +83,14 @@ const StyledContent = styled.div`
       }
     }
   }
+  .trailer-video-container {
+    width: 100%;
+    padding: 0.5rem 5%;
+    iframe {
+      height: 13rem;
+      width: 90%;
+    }
+  }
 `;
 
 const END_POINT = "https://api.jikan.moe/v3/anime/";
@@ -105,6 +113,7 @@ const PopupModel = ({ toggleOpenModal, mode }) => {
       .get(`${END_POINT}${mal_id}`)
       .then(({ data }) => {
         setData(data);
+        console.log(data);
         setProcessing("PROCESSED");
       })
       .catch((err) => {
@@ -169,6 +178,17 @@ const PopupModel = ({ toggleOpenModal, mode }) => {
                 <strong>Description: </strong>
                 {data.synopsis}
               </article>
+              {data.trailer_url && (
+                <div className="trailer-video-container">
+                  <iframe
+                    title="anime trailer"
+                    src={data.trailer_url}
+                    frameBorder="0"
+                    allow="accelerometer; encrypted-media;"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              )}
               {mode === "tele_list" && (
                 <div className="teleLinkBtn">
                   <a
