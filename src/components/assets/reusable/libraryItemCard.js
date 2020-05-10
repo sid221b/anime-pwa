@@ -68,6 +68,10 @@ const StyledLibItemCard = styled.li`
     align-items: center;
     text-align: center;
   }
+  @media only screen and (min-width: 700px) {
+    width: 600px;
+    max-width: 700px;
+  }
 `;
 
 const LibraryItemCard = (props) => {

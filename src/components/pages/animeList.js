@@ -45,6 +45,10 @@ const StyledAnimeList = styled.ul`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media only screen and (min-width: 700px) {
+    justify-content: space-evenly;
+    flex-flow: wrap;
+  }
 `;
 
 const getSortedList = (list) => {

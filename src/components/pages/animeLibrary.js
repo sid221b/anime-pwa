@@ -40,6 +40,11 @@ const StyledItemList = styled.ul`
   display: flex;
   justify-content: center;
   flex-direction: column;
+
+  @media only screen and (min-width: 700px) {
+    justify-content: space-evenly;
+    flex-flow: wrap;
+  }
 `;
 
 const END_POINT = "https://api.jikan.moe/v3/search/anime";
