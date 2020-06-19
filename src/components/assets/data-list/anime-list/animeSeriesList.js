@@ -749,4 +749,219 @@ export const animeSeriesList = [
     telegramLink: "https://t.me/englishdubbedanimee/3696",
     mal_id: 38992,
   },
+  {
+    name: "91 Days S01",
+    telegramLink: "https://t.me/englishdubbedanimee/3724",
+    mal_id: 32998,
+  },
+  {
+    name: "The Devil is a Part-Timer! S01",
+    telegramLink: "https://t.me/englishdubbedanimee/3751",
+    mal_id: 15809,
+  },
+  {
+    name: "Charlotte Season 01",
+    telegramLink: "https://t.me/englishdubbedanimee/3775",
+    mal_id: 28999,
+  },
+  {
+    name: "Beyond The Boundary S01",
+    telegramLink: "https://t.me/englishdubbedanimee/3794",
+    mal_id: 18153,
+  },
+  {
+    name: " No Guns Life S01",
+    telegramLink: "https://t.me/englishdubbedanimee/3815",
+    mal_id: 39539,
+  },
+  {
+    name: "No Game No Life S01",
+    telegramLink: "https://t.me/englishdubbedanimee/3842",
+    mal_id: 19815,
+  },
+  {
+    name: 'Say "I Love You" S01',
+    telegramLink: "https://t.me/englishdubbedanimee/3867",
+    mal_id: 14289,
+  },
+  {
+    name: "My First Girlfriend is a Gal S01",
+    telegramLink: "https://t.me/englishdubbedanimee/3886",
+    mal_id: 34403,
+  },
+  {
+    name: "Hina Festival S01",
+    telegramLink: "https://t.me/englishdubbedanimee/3904",
+    mal_id: 36296,
+  },
+  {
+    name: "Tsurezure Children S01",
+    telegramLink: "https://t.me/englishdubbedanimee/3919",
+    mal_id: 34902,
+  },
+  {
+    name: "Anohana The Flower We Saw That Day S01",
+    telegramLink: "https://t.me/englishdubbedanimee/3935",
+    mal_id: 9989,
+  },
+  {
+    name: "Land of the Lustrous S01",
+    telegramLink: "https://t.me/englishdubbedanimee/3952",
+    mal_id: 35557,
+  },
+  {
+    name: "Cautious Hero - The Hero Is Overpowered but Overly Cautious S01",
+    telegramLink: "https://t.me/englishdubbedanimee/3984",
+    mal_id: 38659,
+  },
+  {
+    name: "Made in Abyss S01",
+    telegramLink: "https://t.me/englishdubbedanimee/3999",
+    mal_id: 34599,
+  },
+  {
+    name: "Maid-sama! S01",
+    telegramLink: "https://t.me/englishdubbedanimee/4021",
+    mal_id: 7054,
+  },
+  {
+    name: "Orange S01",
+    telegramLink: "https://t.me/englishdubbedanimee/4051",
+    mal_id: 32729,
+  },
+  {
+    name: "Kokoro Connect S01",
+    telegramLink: "https://t.me/englishdubbedanimee/4081",
+    mal_id: 11887,
+  },
+  {
+    name: "From the New World S01",
+    telegramLink: "https://t.me/englishdubbedanimee/4101",
+    mal_id: 13125,
+  },
+  {
+    name: "Waiting in the Summer S01",
+    telegramLink: "https://t.me/englishdubbedanimee/4146",
+    mal_id: 11433,
+  },
+  {
+    name: "The Saga of Tanya the Evil S01",
+    telegramLink: "https://t.me/englishdubbedanimee/4161",
+    mal_id: 32615,
+  },
+  {
+    name: "Goblin Slayer S01",
+    telegramLink: "https://t.me/englishdubbedanimee/4180",
+    mal_id: 37349,
+  },
+  {
+    name: "Trinity Seven S01",
+    telegramLink: "https://t.me/englishdubbedanimee/4195",
+    mal_id: 25157,
+  },
+  {
+    name: "Date A Live S01",
+    telegramLink: "https://t.me/englishdubbedanimee/4211",
+    mal_id: 15583,
+  },
+  {
+    name: "Date A Live S02",
+    telegramLink: "https://t.me/englishdubbedanimee/4227",
+    mal_id: 19163,
+  },
+  {
+    name: "Campione! S01",
+    telegramLink: "https://t.me/englishdubbedanimee/4242",
+    mal_id: 12293,
+  },
+  {
+    name: "Monster Series",
+    telegramLink: "https://t.me/englishdubbedanimee/4265",
+    mal_id: 19,
+  },
+  {
+    name: "Hunter x Hunter (2011) Series",
+    telegramLink: "https://t.me/englishdubbedanimee/4268",
+    mal_id: 11061,
+  },
+  {
+    name: "Dorohedoro S01",
+    telegramLink: "https://t.me/englishdubbedanimee/4281",
+    mal_id: 38668,
+  },
+  {
+    name: "Bungo Stray Dogs S01",
+    telegramLink: "https://t.me/englishdubbedanimee/4296",
+    mal_id: 31478,
+  },
+  {
+    name: "Bungo Stray Dogs S02",
+    telegramLink: "https://t.me/englishdubbedanimee/4311",
+    mal_id: 32867,
+  },
+  {
+    name: "Bungo Stray Dogs S03",
+    telegramLink: "https://t.me/englishdubbedanimee/4327",
+    mal_id: 38003,
+  },
+  {
+    name: "Devil May Cry S01",
+    telegramLink: "https://t.me/englishdubbedanimee/4342",
+    mal_id: 1726,
+  },
+  {
+    name: "Fullmetal Alchemist: Brotherhood Series",
+    telegramLink: "https://t.me/englishdubbedanimee/4360",
+    mal_id: 5114,
+  },
+  {
+    name: "Aesthetica of a Rogue Hero S01",
+    telegramLink: "https://t.me/englishdubbedanimee/4364",
+    mal_id: 13161,
+  },
+  {
+    name: "Bleach Series",
+    telegramLink: "https://t.me/englishdubbedanimee/4381",
+    mal_id: 269,
+  },
+  {
+    name: "March Comes in Like a Lion S01",
+    telegramLink: "https://t.me/englishdubbedanimee/4400",
+    mal_id: 31646,
+  },
+  {
+    name: "March Comes in Like a Lion S02",
+    telegramLink: "https://t.me/englishdubbedanimee/4425",
+    mal_id: 35180,
+  },
+  {
+    name: "Naruto Series",
+    telegramLink: "https://t.me/englishdubbedanimee/4452",
+    mal_id: 20,
+  },
+  {
+    name: "Naruto Shippuden Series",
+    telegramLink: "https://t.me/englishdubbedanimee/4473",
+    mal_id: 1735,
+  },
+  {
+    name: "My Hero Academia S04",
+    telegramLink: "https://t.me/englishdubbedanimee/4529",
+    mal_id: 38408,
+  },
+  {
+    name: "Scum's Wish Season 01",
+    telegramLink: "https://t.me/englishdubbedanimee/4557",
+    mal_id: 32949,
+  },
+  {
+    name: "Why the hell are you here, Teacher!? S01",
+    telegramLink: "https://t.me/englishdubbedanimee/4573",
+    mal_id: 38397,
+  },
+  {
+    name: "Shiki S01",
+    telegramLink: "https://t.me/englishdubbedanimee/4591",
+    mal_id: 7724,
+  },
 ];

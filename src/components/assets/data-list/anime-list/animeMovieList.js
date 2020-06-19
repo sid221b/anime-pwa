@@ -159,4 +159,114 @@ export const animeMoviesList = [
     telegramLink: "https://t.me/englishdubbedanimee/3691",
     mal_id: 33049,
   },
+  {
+    name: "The Girl Who Leapt Through Time (2006)",
+    telegramLink: "https://t.me/englishdubbedanimee/3769",
+    mal_id: 2236,
+  },
+  {
+    name: "Beyond the Boundary Movie: I'll be Here The Past (2015)",
+    telegramLink: "https://t.me/englishdubbedanimee/3809",
+    mal_id: 25015,
+  },
+  {
+    name: "Beyond the Boundary Movie: I'll be Here The Future (2015)",
+    telegramLink: "https://t.me/englishdubbedanimee/3809",
+    mal_id: 28675,
+  },
+  {
+    name: "No Game No Life: Zero The Movie",
+    telegramLink: "https://t.me/englishdubbedanimee/3861",
+    mal_id: 33674,
+  },
+  {
+    name: "Made in Abyss Movie 1. Journey's Dawn (2019)",
+    telegramLink: "https://t.me/englishdubbedanimee/4015",
+    mal_id: 37514,
+  },
+  {
+    name: "Made in Abyss Movie 2. Wandering Twilight (2019)",
+    telegramLink: "https://t.me/englishdubbedanimee/4015",
+    mal_id: 37515,
+  },
+  {
+    name: "Hunter x Hunter Phantom Rouge (2013)",
+    telegramLink: "https://t.me/englishdubbedanimee/4271",
+    mal_id: 13271,
+  },
+  {
+    name: "Bleach the Movie 1: Memories of Nobody (2006)",
+    telegramLink: "https://t.me/englishdubbedanimee/4384",
+    mal_id: 1686,
+  },
+  {
+    name: "Bleach Movie 2: The DiamondDust Rebellion (2007)",
+    telegramLink: "https://t.me/englishdubbedanimee/4388",
+    mal_id: 2889,
+  },
+  {
+    name: "Bleach Movie 3: Fade to Black (2008)",
+    telegramLink: "https://t.me/englishdubbedanimee/4392",
+    mal_id: 4835,
+  },
+  {
+    name: "Bleach Movie 4: Hell Verse (2010)",
+    telegramLink: "https://t.me/englishdubbedanimee/4396",
+    mal_id: 8247,
+  },
+  {
+    name: "Naruto the Movie 1: Ninja Clash in the Land of Snow (2004)",
+    telegramLink: "https://t.me/englishdubbedanimee/4455",
+    mal_id: 442,
+  },
+  {
+    name: "Naruto the Movie 2: Legend of the Stone of Gelel (2005)",
+    telegramLink: "https://t.me/englishdubbedanimee/4459",
+    mal_id: 936,
+  },
+  {
+    name: "Naruto the Movie 3: Guardians of the Crescent Moon Kingdom (2006)",
+    telegramLink: "https://t.me/englishdubbedanimee/4463",
+    mal_id: 2144,
+  },
+  {
+    name: "Naruto Shippuden the Movie 1 (2007)",
+    telegramLink: "https://t.me/englishdubbedanimee/4496",
+    mal_id: 2472,
+  },
+  {
+    name: "Naruto Shippuden the Movie 2: Bonds (2008)",
+    telegramLink: "https://t.me/englishdubbedanimee/4500",
+    mal_id: 4437,
+  },
+  {
+    name: "Naruto Shippuden The Movie 3: Inheritors of the Will of Fire (2009)",
+    telegramLink: "https://t.me/englishdubbedanimee/4508",
+    mal_id: 6325,
+  },
+  {
+    name: "Naruto Shippuden the Movie 4: The Lost Tower (2010)",
+    telegramLink: "https://t.me/englishdubbedanimee/4504",
+    mal_id: 8246,
+  },
+  {
+    name: "Naruto Shippuden the Movie 5: Blood Prison (2011)",
+    telegramLink: "https://t.me/englishdubbedanimee/4512",
+    mal_id: 10589,
+  },
+  {
+    name: "Naruto Shippuden the Movie 6: Road to Ninja (2012)",
+    telegramLink: "https://t.me/englishdubbedanimee/4516",
+    mal_id: 13667,
+  },
+  {
+    name: "Naruto Shippuden the Movie 7: The Last (2014)",
+    telegramLink: "https://t.me/englishdubbedanimee/4521",
+    mal_id: 16870,
+  },
+  {
+    name: "Boruto: Naruto the Movie (2015)",
+    telegramLink: "https://t.me/englishdubbedanimee/4525",
+    mal_id: 28755,
+  },
 ];
