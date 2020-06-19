@@ -33,7 +33,6 @@ const StyledSearchBar = styled.div`
       right: 8px;
       top: 13px;
       position: absolute;
-      z-index: 99999999;
       cursor: pointer;
     }
   }
