@@ -84,8 +84,9 @@ const StyledContent = styled.div`
     }
   }
   .trailer-video-container {
-    width: 100%;
-    padding: 0.5rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     iframe {
       height: 13rem;
       width: 90%;
@@ -113,7 +114,6 @@ const PopupModel = ({ toggleOpenModal, mode }) => {
       .get(`${END_POINT}${mal_id}`)
       .then(({ data }) => {
         setData(data);
-        console.log(data);
         setProcessing("PROCESSED");
       })
       .catch((err) => {
@@ -189,27 +189,27 @@ const PopupModel = ({ toggleOpenModal, mode }) => {
                   ></iframe>
                 </div>
               )}
-              {mode === "tele_list" && (
-                <div className="teleLinkBtn">
-                  <a
-                    href={telegramLink}
-                    target="_blank"
-                    onClick={handleTeleLinkClick}
-                    rel="noopener noreferrer"
-                  >
-                    <span>Go To Telegram Post</span>
-                    <img src="/static/images/telegram-icon.png" alt="Link" />
-                  </a>
-                </div>
-              )}
             </div>
           </>
         )}
-        {processing === "PROCESSING" && <div> Loading...</div>}
+        {processing === "PROCESSING" && <div className="Loading..."> Loading...</div>}
         {processing === "FAILED" && <div> Something went wrong!!...</div>}
         <button onClick={toggleOpenModal} className="closeButton">
           Close
         </button>
+        {mode === "tele_list" && (
+          <div className="teleLinkBtn">
+            <a
+              href={telegramLink}
+              target="_blank"
+              onClick={handleTeleLinkClick}
+              rel="noopener noreferrer"
+            >
+              <span>Go To Telegram Post</span>
+              <img src="/static/images/telegram-icon.png" alt="Link" />
+            </a>
+          </div>
+        )}
       </StyledContent>
     </StyledPopupModel>
   );
