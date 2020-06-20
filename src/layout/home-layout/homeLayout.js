@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -10,9 +10,10 @@ const StyledHomeLayout = styled.div`
   flex-direction: column;
 `;
 const StyledHomeNav = styled.div`
+  max-width: 1000px;
   position: sticky;
   top: 0;
-  margin-left: -2%;
+  /* margin-left: -2%; */
   flex-grow: 0;
   width: 100%;
   height: 4rem;
@@ -20,6 +21,7 @@ const StyledHomeNav = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  align-self: center;
   text-align: center;
   background: ${theme.darkBg1};
 
@@ -30,7 +32,7 @@ const StyledHomeNav = styled.div`
     background: ${theme.darkBtn};
     color: ${theme.darkColor1};
     text-decoration: none;
-    
+
     &[data-active="true"] {
       background: ${theme.darkActiveBtn};
     }
@@ -42,16 +44,30 @@ const StyledHomeContent = styled.div`
 `;
 
 const HomeLayout = ({ children }) => {
-  const [activeHomePage, setActiveHomePage] = useState(window.location.pathname)
+  const [activeHomePage, setActiveHomePage] = useState(
+    window.location.pathname
+  );
 
   const handleActiveHomeView = (activePage) => {
     setActiveHomePage(activePage);
-  }
+  };
   return (
     <StyledHomeLayout>
       <StyledHomeNav>
-        <Link data-active={activeHomePage === "/home"} onClick={() => handleActiveHomeView('/home')} to="/home">Home</Link>
-        <Link data-active={activeHomePage === "/home/about-us"} onClick={() => handleActiveHomeView('/home/about-us')} to="/home/about-us">About Us</Link>
+        <Link
+          data-active={activeHomePage === "/home"}
+          onClick={() => handleActiveHomeView("/home")}
+          to="/home"
+        >
+          Home
+        </Link>
+        <Link
+          data-active={activeHomePage === "/home/about-us"}
+          onClick={() => handleActiveHomeView("/home/about-us")}
+          to="/home/about-us"
+        >
+          About Us
+        </Link>
       </StyledHomeNav>
       <StyledHomeContent>{children}</StyledHomeContent>
     </StyledHomeLayout>
